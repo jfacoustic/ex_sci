@@ -27,4 +27,17 @@ defmodule ExSci.VectorTest do
       assert(Vector.add!({1, 2, -3}, {4, -5, 6}) == {5, -3, 3})
     end
   end
+
+  describe "dot_product!/2" do
+    test "it adds the multiples of each corresponding component" do
+      assert(Vector.dot_product!({0, 0}, {0, 0}) == 0)
+      assert(Vector.dot_product!({1, 0}, {0, 0}) == 0)
+      assert(Vector.dot_product!({1, 1}, {0, 0}) == 0)
+      assert(Vector.dot_product!({1, 0}, {1, 0}) == 1)
+      assert(Vector.dot_product!({0, 1}, {0, 1}) == 1)
+      assert(Vector.dot_product!({1, 1}, {1, 1}) == 2)
+      assert(Vector.dot_product!({1, 2, 0}, {3, -2, 1}) == -1)
+      assert(Vector.dot_product!({1, 2}, {3, 4}) == 11)
+    end
+  end
 end
